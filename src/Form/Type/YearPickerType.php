@@ -45,6 +45,7 @@ final class YearPickerType extends AbstractType
             $date = $options['start_date'];
         }
 
+        $view->vars['today'] = (clone $date)->setDate((new \DateTime())->format('Y'), $date->format('m'), $date->format('d'));
         $view->vars['year'] = $date;
         $view->vars['show_range'] = $options['show_range'];
         $view->vars['previousYear'] = (clone $date)->modify('-1 year');

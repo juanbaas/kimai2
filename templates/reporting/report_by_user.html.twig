@@ -13,12 +13,10 @@
             {{ form_end(form) }}
         {% endblock %}
         {% block box_title %}
+            {{ form_widget(form.date) }}
             {% if form.user is defined %}
                 {{ form_row(form.user, {'label': false}) }}
-            {% else %}
-                {{ widgets.username(user) }}
             {% endif %}
-            {{ form_widget(form.date) }}
         {% endblock %}
         {% block box_body_class %}{{ box_id }} table-responsive no-padding{% endblock %}
         {% block box_body %}

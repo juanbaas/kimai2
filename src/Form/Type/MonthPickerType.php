@@ -44,6 +44,7 @@ final class MonthPickerType extends AbstractType
             $date = $options['start_date'];
         }
 
+        $view->vars['today'] = new \DateTime('now', $date->getTimezone());
         $view->vars['month'] = $date;
         $view->vars['previousMonth'] = (clone $date)->modify('-1 month');
         $view->vars['nextMonth'] = (clone $date)->modify('+1 month');

@@ -44,6 +44,7 @@ final class WeekPickerType extends AbstractType
             $date = $options['start_date'];
         }
 
+        $view->vars['today'] = new \DateTime('now', $date->getTimezone());
         $view->vars['week'] = $date;
         $view->vars['previousWeek'] = (clone $date)->modify('-1 week');
         $view->vars['nextWeek'] = (clone $date)->modify('+1 week');
