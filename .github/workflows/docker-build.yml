@@ -1,0 +1,19 @@
+name: trigger_build_docker
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    name: Dispatch to Kimai Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit repository_dispatch
+        uses: mvasigh/dispatch-action@main
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repo: kimai2
+          owner: tobybatch
+          event_type: new_docker_build
